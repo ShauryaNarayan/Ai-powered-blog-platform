@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Database (Keep your local DB out of Git so the cloud starts fresh)
+database.sqlite
+
+# Environment Secrets
+.env
+
+# Logs and Debug files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# OS specific files
+.DS_Store
+Thumbs.db
