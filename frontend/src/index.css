@@ -1,0 +1,436 @@
+/* --- DESIGN SYSTEM VARIABLES --- */
+:root {
+  --bg-color: #FAFAFA;       /* Off-white background */
+  --brand-orange: #E0664A;   /* Primary button color */
+  --brand-orange-hover: #c95a40;
+  --ai-blue-bg: #EBF4F8;     /* AI panel background */
+  --ai-blue-btn: #3498DB;    /* AI generate button */
+  --ai-blue-btn-hover: #2980b9;
+
+  --text-dark: #1A1A1A;
+  --text-muted: #666666;
+  --border-color: #EAEAEA;
+
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Inter', sans-serif;
+}
+
+/* --- GLOBAL RESETS --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-color);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* --- REUSABLE COMPONENTS --- */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.btn-primary {
+  background-color: var(--brand-orange);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  border: none;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--brand-orange-hover);
+}
+
+/* --- NAVBAR STYLES --- */
+.navbar {
+  background-color: var(--bg-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 16px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.flex-center {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-content {
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+
+/* --- HOME PAGE STYLES --- */
+.home-header {
+  margin-bottom: 48px;
+}
+
+.home-header h1 {
+  font-size: 48px;
+  margin-bottom: 8px;
+  letter-spacing: -1px;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 18px;
+}
+
+.blog-list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* The container for the whole card row */
+.blog-card-container {
+  padding: 32px 0;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* The clickable part (Title & Excerpt) */
+.blog-card-link {
+  display: block;
+  transition: opacity 0.2s ease;
+}
+
+.blog-card-link:hover {
+  opacity: 0.8;
+}
+
+.blog-title {
+  color: var(--brand-orange); 
+  font-weight: 700;
+  font-size: 24px;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.blog-excerpt {
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Footer area with Actions on left, Meta on right */
+.blog-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.blog-actions {
+  display: flex;
+  gap: 16px;
+}
+
+/* Styling for the small action buttons */
+.btn-icon-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.btn-icon-text:hover {
+  color: var(--text-dark);
+}
+
+.btn-delete:hover {
+  color: #ef4444; 
+}
+
+.blog-meta {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.meta-divider {
+  margin: 0 8px;
+  color: #CCC;
+}
+
+.loading {
+  text-align: center;
+  font-size: 18px;
+  color: var(--text-muted);
+  margin-top: 50px;
+}
+
+/* --- WRITE / EDIT PAGE STYLES --- */
+.page-title {
+  font-size: 36px;
+  margin-bottom: 32px;
+}
+
+.write-layout {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.form-column {
+  flex: 2; 
+}
+
+.ai-column {
+  flex: 1; 
+  position: sticky;
+  top: 90px; 
+}
+
+/* Form Inputs */
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input-field:focus {
+  border-color: var(--brand-orange);
+}
+
+.textarea-field {
+  min-height: 400px;
+  resize: vertical;
+}
+
+.publish-btn {
+  margin-top: 10px;
+  padding: 12px 24px;
+  font-size: 16px;
+}
+
+/* AI Panel */
+.ai-panel {
+  background-color: var(--ai-blue-bg);
+  border-radius: 12px;
+  border: 1px solid #D6EAF8;
+  overflow: hidden;
+}
+
+.ai-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #D6EAF8;
+}
+
+.ai-title {
+  display: flex;
+  align-items: center;
+  color: #2980b9;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.ai-icon {
+  margin-right: 6px;
+}
+
+.btn-ai-generate {
+  background-color: var(--ai-blue-btn);
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.btn-ai-generate:hover {
+  background-color: var(--ai-blue-btn-hover);
+}
+
+.ai-panel-body {
+  padding: 16px;
+}
+
+.ai-empty-text {
+  color: #5c8ca6;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.ai-card {
+  background-color: white;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: var(--text-dark);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* Utility for loading spinner */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+/* --- POST DETAIL PAGE STYLES --- */
+.post-detail-page {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-bottom: 32px;
+  transition: color 0.2s;
+}
+
+.back-link:hover {
+  color: var(--text-dark);
+}
+
+.post-header {
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 32px;
+}
+
+.post-title-large {
+  font-size: 48px;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  letter-spacing: -1px;
+}
+
+.post-meta-row {
+  color: var(--text-muted);
+  font-size: 15px;
+}
+
+.post-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px; 
+}
+
+/* The Edit Button (Transparent with thin border) */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border: 1px solid #EAEAEA; 
+  border-radius: 6px;
+  background-color: transparent; 
+  color: #666666; 
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-outline:hover {
+  background-color: #f5f5f5;
+  color: var(--text-dark);
+}
+
+/* The Delete Button (Transparent with soft red border) */
+.btn-danger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border: 1px solid #fca5a5; 
+  border-radius: 6px;
+  background-color: transparent; 
+  color: #ef4444; 
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-danger:hover {
+  background-color: #fef2f2; 
+}
+
+.post-content {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #333;
+}
+
+.post-content p {
+  margin-bottom: 24px;
+}
