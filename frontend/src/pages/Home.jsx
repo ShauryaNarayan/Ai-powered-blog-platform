@@ -13,7 +13,7 @@ export default function Home() {
 
   const fetchBlogs = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/blogs');
+      const response = await axios.get('https://ai-powered-blog-platform-1.onrender.com/api/blogs');
       setBlogs(response.data);
     } catch (error) {
       console.error("Error fetching blogs:", error);

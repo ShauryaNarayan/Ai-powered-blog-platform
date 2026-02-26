@@ -14,7 +14,7 @@ export default function PostDetail() {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/blogs/${id}`);
+        const response = await axios.get(`https://ai-powered-blog-platform-1.onrender.com/api/blogs/${id}`);
         setBlog(response.data);
       } catch (error) {
         console.error("Error fetching post:", error);
@@ -32,7 +32,7 @@ export default function PostDetail() {
     const confirmDelete = window.confirm("Are you sure you want to delete this post?");
     if (confirmDelete) {
       try {
-        await axios.delete(`http://localhost:5000/api/blogs/${id}`);
+        await axios.delete(`https://ai-powered-blog-platform-1.onrender.com/api/blogs/${id}`);
         history.push('/'); // Go back to home after deleting
       } catch (error) {
         console.error("Error deleting post:", error);

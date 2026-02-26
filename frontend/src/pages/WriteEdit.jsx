@@ -6,12 +6,12 @@ import { Sparkles, Loader2 } from 'lucide-react';
 export default function WriteEdit() {
   const { id } = useParams(); // If there is an ID in the URL, we are in Edit mode
   const history = useHistory(); // React Router v5 navigation hook
-  
+
   // Form State
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [content, setContent] = useState('');
-  
+
   // AI State
   const [aiSuggestions, setAiSuggestions] = useState([]);
   const [isGenerating, setIsGenerating] = useState(false);
@@ -22,7 +22,7 @@ export default function WriteEdit() {
     if (id) {
       const fetchPost = async () => {
         try {
-          const response = await axios.get(`http://localhost:5000/api/blogs/${id}`);
+          const response = await axios.get(`https://ai-powered-blog-platform-1.onrender.com/api/blogs/${id}`);
           setTitle(response.data.title);
           setAuthor(response.data.author);
           setContent(response.data.content);
@@ -43,7 +43,7 @@ export default function WriteEdit() {
 
     setIsGenerating(true);
     try {
-      const response = await axios.post('http://localhost:5000/api/ai-suggestions', {
+      const response = await axios.post('https://ai-powered-blog-platform-1.onrender.com/api/ai-suggestions', {
         title,
         content
       });
@@ -68,11 +68,11 @@ export default function WriteEdit() {
     try {
       if (id) {
         // If we have an ID, UPDATE the existing post
-        await axios.put(`http://localhost:5000/api/blogs/${id}`, { title, author, content });
+        await axios.put(`https://ai-powered-blog-platform-1.onrender.com/api/blogs/${id}`, { title, author, content });
         history.push(`/post/${id}`); // Go back to the reading page
       } else {
         // If no ID, CREATE a new post
-        await axios.post('http://localhost:5000/api/blogs', { title, author, content });
+        await axios.post('https://ai-powered-blog-platform-1.onrender.com/api/blogs', { title, author, content });
         history.push('/'); // Go back to home
       }
     } catch (error) {
@@ -87,16 +87,16 @@ export default function WriteEdit() {
     <div className="write-page">
       {/* Dynamic Title based on whether we are creating or editing */}
       <h1 className="page-title">{id ? 'Edit Post' : 'Write a New Post'}</h1>
-      
+
       <div className="write-layout">
         {/* LEFT COLUMN: The actual form */}
         <div className="form-column">
           <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label>Title</label>
-              <input 
-                type="text" 
-                placeholder="Your post title" 
+              <input
+                type="text"
+                placeholder="Your post title"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 className="input-field"
@@ -105,9 +105,9 @@ export default function WriteEdit() {
 
             <div className="form-group">
               <label>Author</label>
-              <input 
-                type="text" 
-                placeholder="Your name" 
+              <input
+                type="text"
+                placeholder="Your name"
                 value={author}
                 onChange={(e) => setAuthor(e.target.value)}
                 className="input-field"
@@ -116,16 +116,16 @@ export default function WriteEdit() {
 
             <div className="form-group">
               <label>Content</label>
-              <textarea 
-                placeholder="Start writing your post..." 
+              <textarea
+                placeholder="Start writing your post..."
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
                 className="input-field textarea-field"
               ></textarea>
             </div>
 
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               className="btn-primary publish-btn"
               disabled={isPublishing}
             >
@@ -142,16 +142,16 @@ export default function WriteEdit() {
                 <Sparkles size={18} className="ai-icon" />
                 <span>AI Suggestions</span>
               </div>
-              <button 
-                type="button" 
-                onClick={handleGenerateAI} 
+              <button
+                type="button"
+                onClick={handleGenerateAI}
                 className="btn-ai-generate"
                 disabled={isGenerating}
               >
                 {isGenerating ? <Loader2 size={16} className="spin" /> : 'Generate'}
               </button>
             </div>
-            
+
             <div className="ai-panel-body">
               {aiSuggestions.length === 0 ? (
                 <p className="ai-empty-text">
