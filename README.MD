@@ -4,7 +4,7 @@ A modern, full-stack blogging application that seamlessly integrates Artificial 
 
 Live Demo
 
-Frontend (Vercel): [Insert your Vercel URL here]
+Frontend (Vercel): https://ai-powered-blog-platform.vercel.app/
 Backend API (Render): https://ai-powered-blog-platform-1.onrender.com
 
 (Note: The backend is hosted on a free Render tier. It may take 30-60 seconds to wake up on the initial load).
