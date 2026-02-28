@@ -62,4 +62,4 @@ PUT /api/blogs/:id - Update an existing blog post.
 DELETE /api/blogs/:id - Delete a blog post.
 
 AI Integration
-POST /api/ai-suggestions - Send a draft (title and content) to receive an array of AI-generated suggestions formatted via Gemini 2.0 Flash.
+POST /api/ai-suggestions - Send a draft (title and content) to receive an array of AI-generated suggestions formatted via Gemini 2.5 Flash.
